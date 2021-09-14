@@ -19,6 +19,7 @@ export const getBlocksValidator = (req, res, next) => {
 
 export const getRawBlockValidator = (req, res, next) => {
     logger.info(logMsgs.val_start);
+    console.log('here====');
     const schemaToCheck = { ...req.query, ...req.params };
     console.log('schema to check====', schemaToCheck);
     const schema = Joi.object().keys({
