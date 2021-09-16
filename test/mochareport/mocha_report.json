@@ -1,0 +1,158 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-09-15T13:58:08.065Z",
+    "end": "2021-09-15T13:58:08.097Z",
+    "duration": 32,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "999f08f3-a6dd-48b5-a616-be3567928193",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "409d4390-b5c7-404d-b430-52ae2c656b8f",
+          "title": "GET /api/v1/getBlocks",
+          "fullFile": "/Users/vikrantsandal/Downloads/ES6-With-NodeJS-Recipe-API-master/test/scripts/controllers/blockChain.spec.js",
+          "file": "/test/scripts/controllers/blockChain.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook",
+              "fullTitle": "GET /api/v1/getBlocks \"before each\" hook",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "31775f10-c50f-4c8c-b139-54e19ab37cde",
+              "parentUUID": "409d4390-b5c7-404d-b430-52ae2c656b8f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook",
+              "fullTitle": "GET /api/v1/getBlocks \"after all\" hook",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "app.close();\ndone();",
+              "err": {},
+              "uuid": "5d5a399f-e3a6-4d28-9c4a-76b92f3f058c",
+              "parentUUID": "409d4390-b5c7-404d-b430-52ae2c656b8f",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"after each\" hook",
+              "fullTitle": "GET /api/v1/getBlocks \"after each\" hook",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_sinon.default.restore();\ndone();",
+              "err": {},
+              "uuid": "1a7dbf55-8022-4a6f-baf4-f37598f56fc5",
+              "parentUUID": "409d4390-b5c7-404d-b430-52ae2c656b8f",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "get blocks - happy flow -  value not present in redis",
+              "fullTitle": "GET /api/v1/getBlocks get blocks - happy flow -  value not present in redis",
+              "timedOut": false,
+              "duration": 23,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_sinon.default.stub(redisHelper, \"getKey\").resolves(_constants.default.mockValueGetBlocks.absentInRedis);\n_sinon.default.stub(_axios.default, 'create').returns((() => {\n  return url => {\n    return Promise.resolve({\n      data: _constants.default.mockValueGetBlocks.blocksInsertInRedis\n    });\n  };\n})());\n_sinon.default.stub(redisHelper, \"setKey\").resolves([]);\n_chai.default.request(app).get(`/api/v1/getBlocks`).end((_, res) => {\n  console.log('res.body====', res.body);\n  res.should.have.status(200);\n  res.body.should.be.a(\"object\");\n  res.body.message.should.be.eql(\"SUCCESS\");\n  res.body.result.itemsCount.should.be.eql(_constants.default.mockValueGetBlocks.blocksInsertInRedis.length);\n  done();\n});",
+              "err": {},
+              "uuid": "5ad17ddd-e5d9-4f34-86d5-c793c5062c5f",
+              "parentUUID": "409d4390-b5c7-404d-b430-52ae2c656b8f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5ad17ddd-e5d9-4f34-86d5-c793c5062c5f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mocha_report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "test/mochareport",
+        "reportFilename": "mocha_report"
+      },
+      "version": "4.1.0"
+    }
+  }
+}

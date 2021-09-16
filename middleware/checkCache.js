@@ -17,8 +17,10 @@ export const checkCacheIfExists = async (req, res, next) => {
       page: req.query.page, blockHashId: req.params.block_hash_id, flow
     }
 
+    //create redis key to check if any data already exists on the basis of API/flow
     const redisKey =  consts.REDIS_KEY.KEY_CREATION(redisKeyParams);
 
+    /* get object/array  stored corresponding to the redisKey */
     let result = await redisHelper.getKey(redisKey);
     if (!result) {
       //if value not available - send key forward so not to create it again
@@ -27,6 +29,7 @@ export const checkCacheIfExists = async (req, res, next) => {
     }
 
     try {
+      console.log('here value present====');
       result = JSON.parse(result)
     }
     catch (e) {

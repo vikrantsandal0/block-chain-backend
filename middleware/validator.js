@@ -2,6 +2,7 @@
 import Joi from 'joi';
 import logMsgs from '../static/log_messages';
 import helper from '../utils/helper';
+import logger from '../utils/logger';
 
 export const getBlocksValidator = (req, res, next) => {
     logger.info(logMsgs.val_start);

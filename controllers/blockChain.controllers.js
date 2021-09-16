@@ -20,7 +20,9 @@ export const getBlocks = async (req, res) => {
 	try {
 		const { middleWareObj: { redisKey }, query: { page } } = req;
 		const axiosInstance = getAxiosInstance()
+		console.log('axiosInstance----',axiosInstance.toString());
 		const url = `${consts.blockChainUrls.GET_BLOCKS}/${moment().subtract(1, "days").valueOf()}/?format=json`;
+		//console.log('await axiosInstance(url);=======',(await axiosInstance(url)).toString());
 		const { data } = await axiosInstance(url);
 		console.log('result========', data);
 
@@ -57,7 +59,7 @@ export const getRawBlock = async (req, res) => {
 		console.log('result========', data);
 		/**
 		 * set value which is data from above api corresponding to key getRawBlocks-blockHashid
-		 * [getRawBlocks-1233424442] - data
+		 * getRawBlocks-1233424442 :  data
 		 */
 		
 		await redisHelper.setKey(redisKey, JSON.stringify(data), 600);

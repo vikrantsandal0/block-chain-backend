@@ -53,7 +53,7 @@ try {
 	//Start server
 	const port = process.env.PORT || 5000;
 	server = app.listen(port, console.log(`Server started on port ${port}`));
-
+	module.exports = server;
 } catch (err) {
 	logger.info(logMsgs.server_exit);
 	logger.info(err.stack);

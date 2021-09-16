@@ -45,7 +45,7 @@ module.exports = {
 	server_killConn: "Could not close connections in time, forcefully shutting down",
 
 	/* get blocks*/
-	gBs_start: "getBlocks: get trades start",
+	gBs_start: "getBlocks: get blocks start",
 	gBs_end: "getBlocks: END: get trades ends",
 	gBs_valReqBody: "getBlocks: Validating the request body",
 	gBs_valReqBodyFail: "getBlocks: Failed: Validating the request body",
@@ -53,7 +53,7 @@ module.exports = {
 
 
 	/* get raw block*/
-	gRb_start: "getRawBlocks: get trades start",
+	gRb_start: "getRawBlocks: get raw block starts",
 	gRb_end: "getRawBlocks: END: get trades ends",
 	gRb_valReqBody: "getRawBlocks: Validating the request body",
 	gRb_valReqBodyFail: "getRawBlocks: Failed: Validating the request body",
